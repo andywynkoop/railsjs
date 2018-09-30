@@ -1,10 +1,16 @@
 const crypto = require('crypto');
 const bcrypt = require('bcrypt');
 const Session = require('./session');
-const Route = require('./route');
-const Router = require('./router');
-const schema = require('../activeRecord/schema');
 
+//define all models
+function defineAllModels() {
+  const modelPath = require('path').resolve(__dirname, "..", "..", "models");
+  require("fs").readdirSync(modelPath).forEach(file => {
+    name = file.split('.js')[0];
+    if (!this[name]) (0, eval)('this')[name] = require(`../../models/${file}`);
+  });
+}
+defineAllModels();
 class ControllerBase {
   constructor(props) {
     const { req, res, db, params } = props;
@@ -17,13 +23,6 @@ class ControllerBase {
     this.checkResponse = this.checkResponse.bind(this);
     this.render = this.render.bind(this);
     this.session = new Session(this.req);
-
-    //define all models
-    const modelPath = require('path').resolve(__dirname, "..", "..", "models");
-    require("fs").readdirSync(modelPath).forEach(file => {
-      name = file.split('.js')[0];
-      this[name] = require(`../../models/${file}`);
-    });
   }
 
   // prevent double render

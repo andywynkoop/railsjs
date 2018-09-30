@@ -6,7 +6,7 @@ class CatsController extends ApplicationController {
   }
 
   async create() {
-    let cat = new this.Cat({
+    let cat = new Cat({
       name: "Andy"
     });
     if (await cat.save()) {
