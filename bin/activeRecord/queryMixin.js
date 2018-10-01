@@ -1,8 +1,10 @@
+const { ObjectId } = require('mongodb');
+
 module.exports = {
   async all() {
     const db = await this.db();
     const records = await db.find().sort({ _id: 1 }).toArray();
-    return records;
+    return records.map(record => new this(record));
   },
 
   async find(id) {

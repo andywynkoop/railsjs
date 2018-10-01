@@ -5,6 +5,8 @@ module.exports = function(router) {
   router.get("/cats", CatsController, "index");
   router.get("/cats/:id", CatsController, "show");
   router.post('/cats', CatsController, "create");
-  router.delete('/cats/destroy', CatsController, "destroyAll");
   router.delete('/cats/:id', CatsController, "delete");
+  router.post('/users', UsersController, "create");
+  router.get("/users/:id", UsersController, "show");
+  router.get('/users', UsersController, "index");
 };

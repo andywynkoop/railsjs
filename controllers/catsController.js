@@ -19,6 +19,8 @@ class CatsController extends ApplicationController {
 
   async show() {
     let cat = await Cat.find(this.params.id);
+    let users = await cat.users();
+    console.log(users[0].attributes);
     this.render(cat);
   }
 
@@ -27,17 +29,6 @@ class CatsController extends ApplicationController {
     await cat.destroy();
     this.render("Success");
   }
-
-  async destroyAll() {
-    Cat.destroyAll();
-    this.render("Destroyed all cats")
-  }
-
-  async first() {
-    let cat = await Cat.first();
-    this.render(cat);
-  }
-
 }
 
 module.exports = CatsController;

@@ -4,4 +4,6 @@ class Cat extends ModelBase {
   }
 }
 
+Cat.hasMany("users");
+
 module.exports = Cat;
