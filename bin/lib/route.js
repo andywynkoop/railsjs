@@ -23,7 +23,7 @@ class Route {
   }
 
   run(req, res, params) {
-    params = Object.assign({}, params, this.routeParams);
+    params = Object.assign({}, params, req.body, this.routeParams);
     new this.controller({req, res, params}).invokeAction(this.action);
   }
 

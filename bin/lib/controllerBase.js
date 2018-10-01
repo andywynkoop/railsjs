@@ -65,4 +65,9 @@ class ControllerBase {
   }
 }
 
+function defineControllerBase() {
+  (0, eval)('this').ControllerBase = ControllerBase;
+}
+defineControllerBase();
+
 module.exports = ControllerBase;
