@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "railsjs": "server.js"
+    "railsjs": "bin/cli.js"
   },
   "scripts": {
     "start": "node bin/server.js",
     "dev": "nodemon bin/server.js",
     "webpack": "webpack --watch --mode=development",
-    "build": "webpack"
+    "build": "webpack",
+    "tests": "ncp /Users/andywynkoop/Projects/railsjs/bin /Users/andywynkoop/Projects/railsjs/test"
   },
   "author": "Andy Wynkoop",
   "license": "ISC",
@@ -30,6 +31,7 @@
     "express": "^4.16.3",
     "inflector-js": "^1.0.1",
     "mongodb": "^3.1.6",
+    "ncp": "^2.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "url-pattern": "^1.0.3",

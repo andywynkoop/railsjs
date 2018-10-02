@@ -32,9 +32,9 @@ class NoSQLObject {
 
   defineAttributes() {
     const { schema } = this;
-    const attrs = Object.keys(schema);
     let attributes = {};
     if (schema) {
+      const attrs = Object.keys(schema);
       attrs.forEach(attr => attributes[attr] = null);
       attributes['_id'] = null;
       Object.preventExtensions(attributes);
