@@ -10,8 +10,7 @@
     "start": "node bin/server.js",
     "dev": "nodemon bin/server.js",
     "webpack": "webpack --watch --mode=development",
-    "build": "webpack",
-    "tests": "ncp /Users/andywynkoop/Projects/railsjs/bin /Users/andywynkoop/Projects/railsjs/test"
+    "build": "webpack"
   },
   "author": "Andy Wynkoop",
   "license": "ISC",

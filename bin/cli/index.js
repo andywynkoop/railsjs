@@ -1,6 +1,6 @@
 module.exports = ({
   new: require('./new.js'),
-  s: require('./server', (err, stdout, stderr) => {
-    console.log(stdout);
-  }),
+  server: require('./server'),
+  s: require('./server'),
+  build: require('./build')
 });

@@ -14,7 +14,6 @@ require('./lib/controllerBase');
 require('./lib/controllers');
 require('./lib/applicationController');
 
-const port = 3211
 
 app.all('/api/*', (req, res) => {
   const router = new Router(req, res);
@@ -26,6 +25,7 @@ app.get('*', (_req, res) => {
   res.sendFile(root);
 });
 
+const port = process.env.port || 3000
 app.listen(port, () => {
-  console.log(`server running on port ${port}`);
+  console.log(`Server running on port ${port}`);
 });
