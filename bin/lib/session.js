@@ -14,11 +14,6 @@ class Session {
     return this.cookie[key];
   }
 
-  count() {
-    let prevCount = this.cookie.count || 0;
-    this.cookie.count = prevCount + 1;
-  }
-
   set(key, val) {
     return this.cookie[key] = val;
   }

@@ -10,7 +10,8 @@
     "start": "node bin/server.js",
     "dev": "nodemon bin/server.js",
     "webpack": "webpack --watch --mode=development",
-    "build": "webpack"
+    "build": "webpack",
+    "delete": "nodemon bin/delete.js"
   },
   "author": "Andy Wynkoop",
   "license": "ISC",

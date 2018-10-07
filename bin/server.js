@@ -15,13 +15,16 @@ require('./lib/controllerBase');
 require('./lib/controllers');
 require('./lib/applicationController');
 
-
+// forward all namespaced requests to the router
 app.all(`${namespace}/*`, (req, res) => {
   const router = new Router(req, res);
+  // pass the router into a function that defines routes
   require('../config/routes')(router);
+  // match the path and invoke appropriate action
   router.run(req, res)
 });
 
+// for any other requests, serve the root html file
 app.get('*', (_req, res) => {
   res.sendFile(root);
 });

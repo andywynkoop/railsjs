@@ -74,10 +74,10 @@ export default DogsController;
 
 ### Controller Actions
 
-Actions are controller
+Actions are functions defined on the controller prototype. Any actions defined in a controller can be referenced when defining routes.
 
 ### Session
-Your application includes a `session` for each user
+RailsJS includes a `session` for each user of the app. You can call `this.session` anywhere inside of your controllers to access the `Session` instance. Use `this.session.get(key)` and `this.session.set(key, value)` to store information between requests.
 ####
 
 ## Schema

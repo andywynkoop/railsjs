@@ -49,7 +49,6 @@ class ControllerBase {
   }
 
   render(content) {
-    this.session.count();
     this.session.save(this.res);
     this.res.send(content);
   }
