@@ -6,6 +6,7 @@ class HasManyOptions extends AssociationOptions {
     super(options);
     this.foreignKey = `${ownName}Id`;
     this.className = Inflector.singularize(Inflector.capitalize(name));
+    this.use(options);
   }
 }
 

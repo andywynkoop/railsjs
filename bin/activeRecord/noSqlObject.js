@@ -51,7 +51,7 @@ class NoSQLObject {
     const { attributes } = this;
     Object.keys(params).forEach(attr => {
       if (!attributes.hasOwnProperty(attr) && this.enforceAttrs) {
-        throw `Unknown attribute ${attr} for ${this.documentName()}`;
+        throw `Unknown attribute ${attr} for ${this.constructor.documentName()}`;
       }
       attributes[attr] = params[attr];
     });
@@ -69,7 +69,7 @@ class NoSQLObject {
   checkSchemaConstraints() {
     if (!this.enforceAttrs) {
       console.log(`No schema found for ${this.constructor.name}. Define one in the schema directory to enforce attributes.`);  
-      return true;
+      return { empty: true };
     }
     return schemaValidation(this);
   }

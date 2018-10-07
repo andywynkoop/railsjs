@@ -6,6 +6,7 @@ app.use(express.static('dist'));
 app.use(require('cookie-parser')());
 app.use(require('body-parser').json());
 const Router = require('./lib/router.js');
+const { namespace } = require('../config/router.config');
 
 //Make ModelBase, ControllerBase, ApplicationController globally available
 require('./activeRecord/ModelBase.js');
@@ -15,7 +16,7 @@ require('./lib/controllers');
 require('./lib/applicationController');
 
 
-app.all('/api/*', (req, res) => {
+app.all(`${namespace}/*`, (req, res) => {
   const router = new Router(req, res);
   require('../config/routes')(router);
   router.run(req, res)

@@ -12,7 +12,7 @@ module.exports = (...args) => {
       const target = stdout.split("\n")[0] + `/${appName}`;
       console.log(`Creating app ${appName}`);
       ncp(source, target);
-      console.log("Installing dependencies...");
+      console.log("Installing dependencies");
       console.log("This may take a while...");
       const loading = loadingAnimation();
       exec(`cd ${appName} && npm install`, () => {

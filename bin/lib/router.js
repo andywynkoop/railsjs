@@ -1,5 +1,6 @@
 const Route = require('./route');
 const url = require('url');
+const { namespace } = require('../../config/router.config');
 
 class Router {
   constructor() {
@@ -34,7 +35,7 @@ class Router {
   }
 
   appendApi(pattern) {
-    return "/api" + pattern;
+    return namespace + pattern;
   }
 }
 

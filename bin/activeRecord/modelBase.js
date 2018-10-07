@@ -10,6 +10,7 @@ class ModelBase extends NoSQLObject {
 
 Object.assign(NoSQLObject, QueryMixin, AssociationMixin);
 
+// globally define ModelBase
 (0, eval)('this').ModelBase = ModelBase;
 
 module.exports = ModelBase;
