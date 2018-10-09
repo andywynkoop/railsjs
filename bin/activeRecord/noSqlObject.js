@@ -22,16 +22,16 @@ class NoSQLObject {
   static async create(params) {
     const instance = new this();
     await instance.assignAttributes(params);
+    await instance.afterInitialize();
     return instance;
   }
 
   // Instance
 
-  constructor(params) {
+  constructor() {
     this.setSchema();
     this.defineAttributes();
     this.defineAttrAccessor();
-    this.afterInitialize();
   }
 
   setSchema() {
