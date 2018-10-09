@@ -4,27 +4,27 @@ module.exports = {
   async all() {
     const db = await this.db();
     const records = await db.find().sort({ _id: 1 }).toArray();
-    return records.map(record => new this(record));
+    return records.map(record => this.create(record));
   },
 
   async find(id) {
     const db = await this.db();
     const record = await db.findOne({ _id: ObjectId(id) });
-    if (record) return new this(record);
+    if (record) return this.create(record);
     return null;
   },
 
   async findBy(params) {
     const db = await this.db();
     const record = await db.findOne(params);
-    if (record) return new this(record);
+    if (record) return this.create(record);
     return null;
   },
 
   async where(params) {
     const db = await this.db();
     const records = await db.find(params).sort({ _id: 1 }).toArray();
-    return records.map(record => new this(record));
+    return records.map(record => this.create(record));
   },
 
   async first() {
