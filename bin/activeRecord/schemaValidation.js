@@ -4,7 +4,7 @@ module.exports = async instance => {
   // create an empty errors object
   const errors = {};
   // iterate through all defined attributes on the instance
-  Object.keys(attributes).forEach(attr => {
+  Object.keys(attributes).forEach(async attr => {
     // get constraints from schema
     const constraints = schema[attr];
     // get value of attribute

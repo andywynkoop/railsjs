@@ -15,7 +15,7 @@ module.exports = (...args) => {
       console.log("Installing dependencies");
       console.log("This may take a while...");
       const loading = loadingAnimation();
-      exec(`cd ${appName} && npm install`, () => {
+      exec(`cd ${appName} && npm install && npm run build`, () => {
         clearInterval(loading);
         process.stdout.clearLine();
         process.stdout.cursorTo(0);

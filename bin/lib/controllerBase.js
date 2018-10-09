@@ -34,13 +34,23 @@ class ControllerBase {
   } 
 
   // create a hash from password using bcrypt
-  hash(password) {
-    return bcrypt.hash(password, saltRounds);
+  hash(password, saltRounds = 2) {
+    return new Promise((resolve, reject) => {
+      bcrypt.hash(password, saltRounds, (err, hash) => {
+        if (err) reject(err);
+        resolve(hash);
+      });
+    });
   }
 
   // check a password against a hash using bcrypt
-  compare(password, hash){
-    return bcrypt.compare(password, hash);
+  compare(password, hash) {
+    return new Promise((resolve, reject) => {
+      bcrypt.compare(password, hash, (err, res) => {
+        if (err) reject(err);
+        resolve(res);
+      });
+    });
   }
 
   invokeAction(actionName) {
